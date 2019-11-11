@@ -441,10 +441,23 @@
                                     <action selector="btnAdministrar:" destination="JYA-QV-gif" eventType="touchUpInside" id="6D9-DI-vEH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3s-jg-roD">
+                                <rect key="frame" x="263" y="749" width="118" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.12023770070000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="IzG-uh-hfZ"/>
+                                    <constraint firstAttribute="height" constant="36" id="bFb-dm-y7d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Cerrar Sesion">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0b6-wb-9A6" firstAttribute="leading" secondItem="oY5-Ga-fjI" secondAttribute="leading" constant="129" id="0tn-8y-D3K"/>
+                            <constraint firstItem="oY5-Ga-fjI" firstAttribute="bottom" secondItem="e3s-jg-roD" secondAttribute="bottom" constant="77" id="4NF-Gq-1YA"/>
                             <constraint firstItem="oY5-Ga-fjI" firstAttribute="trailing" secondItem="KIN-0S-31R" secondAttribute="trailing" constant="20" id="4ex-cS-ANs"/>
                             <constraint firstItem="Uh0-NE-Cho" firstAttribute="top" secondItem="0b6-wb-9A6" secondAttribute="bottom" constant="48" id="BNr-wS-c72"/>
                             <constraint firstItem="0b6-wb-9A6" firstAttribute="top" secondItem="KIN-0S-31R" secondAttribute="bottom" constant="34" id="BrQ-si-Ndk"/>
@@ -454,8 +467,11 @@
                             <constraint firstItem="Uh0-NE-Cho" firstAttribute="leading" secondItem="oY5-Ga-fjI" secondAttribute="leading" constant="146" id="XTE-iY-12I"/>
                             <constraint firstItem="oY5-Ga-fjI" firstAttribute="trailing" secondItem="0b6-wb-9A6" secondAttribute="trailing" constant="128" id="Xur-MY-bZY"/>
                             <constraint firstItem="Go3-hz-hQd" firstAttribute="leading" secondItem="oY5-Ga-fjI" secondAttribute="leading" constant="139" id="cbG-Bb-2fO"/>
+                            <constraint firstItem="oY5-Ga-fjI" firstAttribute="trailing" secondItem="e3s-jg-roD" secondAttribute="trailing" constant="33" id="d5r-oW-sL0"/>
                             <constraint firstItem="oY5-Ga-fjI" firstAttribute="trailing" secondItem="Go3-hz-hQd" secondAttribute="trailing" constant="138" id="fl4-jC-4ck"/>
                             <constraint firstItem="KIN-0S-31R" firstAttribute="leading" secondItem="oY5-Ga-fjI" secondAttribute="leading" constant="279" id="gfY-Be-d9a"/>
+                            <constraint firstItem="e3s-jg-roD" firstAttribute="leading" secondItem="oY5-Ga-fjI" secondAttribute="leading" constant="263" id="msu-W6-2d5"/>
+                            <constraint firstItem="e3s-jg-roD" firstAttribute="top" secondItem="Go3-hz-hQd" secondAttribute="bottom" constant="197" id="vyn-Su-wGQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oY5-Ga-fjI"/>
                     </view>

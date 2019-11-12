@@ -13,7 +13,7 @@ class ViewControllerCrear: UIViewController {
     var usuario = [Usuarios]()
     var db : OpaquePointer?
     
-    @IBOutlet var imgView:UIImageView?
+    @IBOutlet weak var txtNombre: UITextField!
     
     @IBOutlet weak var pwd1: UITextField!
     
@@ -35,7 +35,11 @@ class ViewControllerCrear: UIViewController {
         let p2 = pwd2.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let noC = NoControl.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let carr = Carrera.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let nom = txtNombre.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        if (nom?.isEmpty)!{
+            showAlert(Titulo: "Error", Mensaje: "Falta nombre")
+        }
         if (noC?.isEmpty)!{
             showAlert(Titulo: "Error", Mensaje: "Falta numero de control")
             return
@@ -54,15 +58,18 @@ class ViewControllerCrear: UIViewController {
         }
         
         let pwd: NSString = p1! as NSString
+        let nomUsr: NSString = nom! as NSString
         let noCtrl: NSString = noC! as NSString
         let carre: NSString = carr! as NSString
         
         var stmt: OpaquePointer?
-        let sentencia = "INSERT INTO Usuario(noControl,carrera, password) values (?,?,?)"
+        let sentencia = "INSERT INTO Usuario(noControl, nomUsuario, carrera, password) values (?,?,?,?)"
         if sqlite3_prepare(db,sentencia, -1, &stmt, nil) == SQLITE_OK{
-            sqlite3_bind_text(stmt, 1,pwd.utf8String,-1,nil)
-            sqlite3_bind_text(stmt, 2, noCtrl.utf8String, -1, nil)
+            sqlite3_bind_text(stmt, 1, noCtrl.utf8String, -1, nil)
+            sqlite3_bind_text(stmt, 2, nomUsr.utf8String, -1, nil)
             sqlite3_bind_text(stmt, 3, carre.utf8String, -1, nil)
+            sqlite3_bind_text(stmt, 4, pwd.utf8String,-1,nil)
+        
             showAlert(Titulo: "Correcto", Mensaje: "Usuario Insertado con exito")
             
         }
@@ -85,7 +92,7 @@ class ViewControllerCrear: UIViewController {
             showAlert(Titulo: "basedatos", Mensaje: "Error al abrir base de datos")
             
         }
-        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, noControl TEXT, carrera TEXT, password TEXT)", nil, nil, nil) != SQLITE_OK{
+        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, noControl TEXT, nomUsuario TEXT,carrera TEXT, password TEXT)", nil, nil, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             showAlert(Titulo:"Error al crear la tabla", Mensaje: errmsg)
         }
@@ -94,6 +101,7 @@ class ViewControllerCrear: UIViewController {
     
     func limpiar() {
         NoControl.text = ""
+        txtNombre.text = ""
         Carrera.text = ""
         pwd1.text = ""
         pwd2.text = ""

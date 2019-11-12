@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             showAlert(Titulo: "basedatos", Mensaje: "Error al abrir base de datos")
             
         }
-        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, noControl TEXT, carrera TEXT, password TEXT)", nil, nil, nil) != SQLITE_OK{
+        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, noControl TEXT,nomUsuario TEXT, carrera TEXT, password TEXT)", nil, nil,nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             showAlert(Titulo:"Error al crear la tabla", Mensaje: errmsg)
         }

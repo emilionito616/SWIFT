@@ -9,12 +9,16 @@
 import Foundation
 class Usuarios{
     var idUsuario: String
+    var noControl: String
     var nomUsuario: String
+    var carrera: String
     var password: String
     
-    init(idUsr: String, nomUsr: String, pwd: String) {
+    init(idUsr: String,noCrtl: String, nomUsr: String, carr: String,pwd: String) {
         self.idUsuario = idUsr
+        self.noControl = noCrtl
         self.nomUsuario = nomUsr
+        self.carrera = carr
         self.password = pwd
     }
 }
